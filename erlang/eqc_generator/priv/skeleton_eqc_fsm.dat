@@ -1,0 +1,53 @@
+%%% This file is for internal use. Do NOT modify it.
+__HEADER
+
+__MODULE_NAME
+
+-include_lib("eqc/include/eqc.hrl").
+-include_lib("eqc/include/eqc_fsm.hrl").
+
+-compile(export_all).
+
+%% Definition of the states. Each state is represented by a function, 
+%% listing the transitions from that state, together with generators 
+%% for the calls to make each transition.
+__STATES_DEFINITION
+
+%% Identify the initial state
+initial_state() ->
+__INITIAL_STATE
+
+%% Initialize the state data: we do not need any state data
+initial_state_data() ->
+    [].
+
+%% Next state transformation for state data.
+%% S is the current state, From and To are state names
+%% We do not need any state data
+next_state_data(_From,_To,S,_V,{call,_,_,_}) ->
+    S.
+
+%% Precondition (for state data).
+%% Precondition is checked before command is added to the command sequence
+precondition(_From,_To,_S,{call,_,_,_}) ->
+    true.
+
+%% Postcondition, checked after command has been evaluated
+%% OBS: S is the state before next_state_data(From,To,S,_,<command>) 
+__POSTCONDITIONS
+postcondition(_From,_To,_S,{call,_,_,_},_Res) ->
+    true.
+
+prop_skeleton() ->
+    ?FORALL(Cmds,commands(?MODULE),
+	    begin
+		{H,S,Res} = run_commands(?MODULE,Cmds),
+		?WHENFAIL(
+		   io:format("History: ~p~nState: ~p~nRes: ~p~n",[H,S,Res]),
+		   Res == ok)
+	    end).
+
+%% Weight for transition (this callback is optional).
+%% Specify how often each transition should be chosen
+weight(_From,_To,{call,_,_,_}) ->
+    1.
