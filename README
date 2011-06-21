@@ -1,0 +1,38 @@
+Property-based testing tool for graphical user interfaces
+=========================================================
+
+Author: David Iglesias Fraga (dav.iglesias AT yahoo DOT es)
+lib/ folder contains third party libraries
+
+System requirements
+-------------------
+
+To compile and run the tool, the following software must be installed:
+
+* Java compiler and runtime environment
+* Erlang compiler and runtime system
+* Apache Ant
+* QuviQ's Erlang QuickCheck library. In case of not having it installed, the
+compilation procedure will output an error message, but the tool will be anyway
+runnable.
+
+Erlang source compilation, configuration and execution
+------------------------------------------------------
+
+In order to compile this part, go to "erlang/" folder. In Unix-like systems, run
+the shell script "compilaErlang.sh". In other systems, compile the three
+applications (the sources are in "src/" subfolders and the binaries must go in
+the "ebin/" subfolders).
+
+(Optional) In order to view the graphics, environmental variables "GRAPHVIZ" and
+"VIEWER" must be set to the name of an application to convert from .dot to .jpeg
+and to view JPEG images, respectively. (See "help" menu).
+
+To launch the Erlang server, run the shell script "lanzaErlang.sh" or the order
+within in.
+
+Java source compilation, configuration adn execution
+----------------------------------------------------
+
+Use the tool Apache Ant with the "build.xml" file provided. Normally, "ant run"
+would meet the requirements.
