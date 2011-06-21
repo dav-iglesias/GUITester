@@ -1,0 +1,3 @@
+[submodule "erlang/Visualizing-EUnit-tests"]
+	path = erlang/Visualizing-EUnit-tests
+	url = git://github.com/ThomasArts/Visualizing-EUnit-tests.git

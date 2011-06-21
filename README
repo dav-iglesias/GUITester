@@ -5,6 +5,9 @@ Author: David Iglesias Fraga (dav.iglesias AT yahoo DOT es)
 
 "lib/" folder contains third party libraries
 
+Note: "erlang/Visualizing-EUnit-tests" is a git submodule, corresponding to a
+third party project. Please, initialize this submodule before proceeding.
+
 System requirements
 -------------------
 
