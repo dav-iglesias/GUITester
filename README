@@ -2,7 +2,8 @@ Property-based testing tool for graphical user interfaces
 =========================================================
 
 Author: David Iglesias Fraga (dav.iglesias AT yahoo DOT es)
-lib/ folder contains third party libraries
+
+"lib/" folder contains third party libraries
 
 System requirements
 -------------------
